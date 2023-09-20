@@ -1,5 +1,5 @@
 import tiktoken
-from langchain.llms import OpenAI
+from llama_index.llms import OpenAI
 from llama_index import GPTVectorStoreIndex, PromptHelper, LLMPredictor, SimpleDirectoryReader
 from llama_index import load_index_from_storage,StorageContext
 import openai
