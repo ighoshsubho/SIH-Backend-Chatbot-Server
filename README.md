@@ -11,4 +11,9 @@ Backend chatbot server for SIH
 `uvicorn main:app --reload`
 
 ### Endpoint
-`http://localhost/8000` - This endpoint accepts a post request
+`http://localhost/8000/api`
+
+1. `/generate` - Will generate you response based on grievance
+2. `/index` - Will re create the index based on given text
+3. `/token` - Will return token count for the text
+4. `/transcribe` - Will transcribe the audio and pass it to the chatbot to query the index and return the result
