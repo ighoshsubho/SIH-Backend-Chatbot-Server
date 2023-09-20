@@ -4,12 +4,17 @@ from llama_index import GPTVectorStoreIndex, PromptHelper, LLMPredictor, SimpleD
 from llama_index import load_index_from_storage,StorageContext
 import openai
 import os
+import mimetypes
 from dotenv import load_dotenv
 
 load_dotenv()
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 openai.api_key = OPENAI_API_KEY
+
+def is_valid_audio_file(filename):
+  mime_type, _ = mimetypes.guess_type(filename)
+  return mime_type in ['audio/mpeg', 'audio/wav']
 
 def ConstructIndex(directory_path):
   max_input_size = 4096
@@ -25,7 +30,7 @@ def ConstructIndex(directory_path):
   return index
 
 def chatbotQA(text):
-  index_context = StorageContext.from_defaults(persist_dir="app/index.json")
+  index_context = StorageContext.from_defaults(persist_dir="index.json")
   print(index_context)
   index = load_index_from_storage(index_context).as_query_engine()
   prompt = "You are a grievance adressing assistant."\
