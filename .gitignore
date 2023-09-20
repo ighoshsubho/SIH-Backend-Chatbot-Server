@@ -1,0 +1,57 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual Environment
+venv/
+env/
+ENV/
+
+# Dependency directories
+# venv, env, and ENV directories should usually be ignored
+# If you are working with a different virtual environment manager, those directories may differ
+# E.g., if using pipenv:
+# .venv/
+
+# IDE (e.g., PyCharm) settings
+.idea/
+
+# Compiled files
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Logs and databases
+*.log
+*.sqlite
+*.db
+
+# Editor/IDE backup files
+*~
+
+# Compiled Python files
+*.pyc
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Environment variables file (if you have one)
+.env
+
+# VS Code settings
+.vscode/
+
+# Python's compiled bytecode
+__pycache__/
+
+# Docker
+Dockerfile
+docker-compose.yml
+
+# Log files
+*.log

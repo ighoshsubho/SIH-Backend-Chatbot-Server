@@ -1,0 +1,3 @@
+Our dashboard can help people navigate through their grievances
+
+It has the status which the user can check in the dashboard.
