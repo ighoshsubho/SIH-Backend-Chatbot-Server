@@ -50,7 +50,7 @@ ENV/
 __pycache__/
 
 # Docker
-Dockerfile
+
 docker-compose.yml
 
 # Log files
