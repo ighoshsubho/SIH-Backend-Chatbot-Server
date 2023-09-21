@@ -65,7 +65,9 @@ async def transcribe_and_generate_response(audio_file: UploadFile):
 
         # Get the transcribed text from the API response
         transcribed_text = response["text"]
+        
+        print(transcribed_text)
 
         # Now, pass the transcribed text to the "generate_response" endpoint
-        res = await generate_response(transcribed_text)
-        return res
+        # res = await generate_response(transcribed_text)
+        return transcribed_text
