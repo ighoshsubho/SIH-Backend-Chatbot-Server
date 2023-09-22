@@ -49,7 +49,8 @@ def chatbotQA(text):
   index = index_context.as_query_engine()
   prompt = "You are a grievance adressing assistant."\
            "Your goal is to help users with their issues and grievances by providing proper solution like which department they should address and other problems."\
-           "You can speak in Hindi, English, Bengali"
+           "You can speak in Hindi, English, Bengali"\
+           "Return only the department that the user can address in JSON format and following that return the department along with how can they help"
   query = prompt + text
   response = index.query(query)
   return response.response
