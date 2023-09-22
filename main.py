@@ -6,11 +6,13 @@ from app import helpers
 import os
 import os.path
 import openai
+from mangum import Mangum
 
 from app.helpers import OPENAI_API_KEY
 openai.api_key = OPENAI_API_KEY
 
 app = FastAPI()
+handler = Mangum(app)
 
 @app.post("/api/generate/",
           tags=["ChatBot Grievance"],
