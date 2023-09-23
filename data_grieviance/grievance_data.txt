@@ -1,8 +1,8 @@
 In India, there are various government departments and agencies responsible for handling different types of grievances and complaints from citizens. The specific departments and their responsibilities can vary from state to state, but here are some common departments and the types of grievances they typically address:
 
-Public Works Department (PWD): Handles complaints related to road maintenance, potholes, and infrastructure issues.
+PublicWorks Department (PWD): Handles complaints related to road maintenance, potholes, and infrastructure issues.
 
-Municipal Corporation/Municipalities: Addresses complaints related to sanitation, garbage collection, water supply, and municipal services.
+Municipal Corporation: Addresses complaints related to sanitation, garbage collection, water supply, and municipal services.
 
 Police Department: Deals with complaints related to law and order, public safety, and criminal activities.
 
@@ -14,11 +14,11 @@ Transport Department: Deals with grievances related to public transportation, in
 
 Electricity Department: Addresses issues related to power supply, billing, and electrical infrastructure.
 
-Water Resources/Water Supply Department: Manages complaints about water supply, drainage, and water resource management.
+WaterSupply Department: Manages complaints about water supply, drainage, and water resource management.
 
-Consumer Affairs/Consumer Protection: Deals with consumer complaints, including product defects, fraud, and unfair trade practices.
+Consumer Protection: Deals with consumer complaints, including product defects, fraud, and unfair trade practices.
 
-Social Welfare Department: Handles complaints related to social welfare schemes, pensions, and benefits for vulnerable populations.
+SocialWelfare Department: Handles complaints related to social welfare schemes, pensions, and benefits for vulnerable populations.
 
 Labour Department: Addresses labor-related grievances, including disputes, wages, and employment rights.
 
@@ -28,19 +28,19 @@ Revenue Department: Manages land and property-related grievances, including land
 
 Forest Department: Addresses issues related to forest conservation, wildlife protection, and illegal logging.
 
-Food and Civil Supplies Department: Handles complaints regarding the distribution of essential commodities, ration cards, and food safety.
+FoodandCivilSupplies Department: Handles complaints regarding the distribution of essential commodities, ration cards, and food safety.
 
-Women and Child Development Department: Addresses grievances related to women's rights, child welfare, and domestic violence.
+WomenandChildDevelopment Department: Addresses grievances related to women's rights, child welfare, and domestic violence.
 
-Tribal Affairs Department: Deals with issues specific to tribal communities, including land rights and development schemes.
+TribalAffairs Department: Deals with issues specific to tribal communities, including land rights and development schemes.
 
-Disaster Management Authority: Manages complaints related to natural disasters, relief efforts, and emergency response.
+DisasterManagementAuthority: Manages complaints related to natural disasters, relief efforts, and emergency response.
 
-Land Reforms Department: Addresses grievances related to land distribution, land reforms, and issues concerning landless farmers.
+LandReformsDepartment: Addresses grievances related to land distribution, land reforms, and issues concerning landless farmers.
 
-Animal Welfare Department: Deals with complaints regarding animal cruelty, wildlife conservation, and animal rights.
+AnimalWelfare Department: Deals with complaints regarding animal cruelty, wildlife conservation, and animal rights.
 
-Economic Offenses Wing: Investigates complaints related to economic crimes, financial fraud, and white-collar offenses.
+EconomicOffenses Department: Investigates complaints related to economic crimes, financial fraud, and white-collar offenses.
 
 Fire Department: Addresses concerns related to fire safety, fire hazards, and emergency response during fire incidents.
 
@@ -50,7 +50,7 @@ Cyber Crime Cell: Handles complaints related to cybercrimes, online fraud, hacki
 
 Agriculture Department: Addresses grievances related to agriculture, farming practices, crop protection, and agricultural subsidies.
 
-Minority Affairs Department: Focuses on issues concerning religious and linguistic minorities, including schemes for their development.
+MinorityAffairs Department: Focuses on issues concerning religious and linguistic minorities, including schemes for their development.
 
 Election Commission: Addresses concerns related to electoral processes, voter registration, and election irregularities.
 
@@ -60,18 +60,20 @@ Pension Department: Deals with grievances related to pension schemes for governm
 
 Tourism Department: Addresses issues related to tourism promotion, tourist safety, and tourism infrastructure.
 
-Customs and Excise Department: Manages complaints related to customs duties, excise taxes, and import/export regulations.
+CustomsandExcise Department: Manages complaints related to customs duties, excise taxes, and import/export regulations.
 
 Rural Development Department: Focuses on rural development programs, poverty alleviation, and rural infrastructure.
 
 Urban Development Authority: Deals with grievances related to urban planning, municipal governance, and city development.
 
-Disability Affairs Department: Addresses concerns related to the rights and welfare of persons with disabilities.
+DisabilityAffairs Department: Addresses concerns related to the rights and welfare of persons with disabilities.
 
 Transport Regulatory Authority: Manages complaints related to transportation regulations, licensing, and vehicle safety.
 
 Cooperative Department: Deals with issues related to cooperative societies, credit unions, and cooperative development.
 
-Science and Technology Department: Addresses grievances related to scientific research, technology, and innovation.
+ScienceandTechnology Department: Addresses grievances related to scientific research, technology, and innovation.
 
-Adivasi Welfare Department: Focuses on issues specific to Adivasi (indigenous) communities, including land rights and development programs.
+AdivasiWelfare Department: Focuses on issues specific to Adivasi (indigenous) communities, including land rights and development programs.
+
+

@@ -48,8 +48,9 @@ def chatbotQA(text):
   index_context = GPTVectorStoreIndex.from_vector_store(vector_store=vector_store)
   index = index_context.as_query_engine()
   prompt = "You are a grievance adressing assistant."\
-           "Your goal is to help users with their issues and grievances by providing proper solution like which department they should address and other problems."\
-           "You can speak in Hindi, English, Bengali"
+           "You can speak in any language."\
+           "Classify the issues and grievances into the best matching department among Public Works Department, Municipal Corporation/Municipalities, Police Department, Health Department, Education Department , Electricity Department and Transport Department on the basis of nature of the issue and any relevant keywords.  Strictly don't use single word rather than the json object."\
+          "Always follow this rule to give only one department should be assigned to an issue."
   query = prompt + text
   response = index.query(query)
   return response.response

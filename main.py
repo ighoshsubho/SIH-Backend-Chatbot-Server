@@ -1,3 +1,4 @@
+from pydub import AudioSegment
 import io
 from fastapi import FastAPI
 from pydantic import BaseModel
@@ -6,11 +7,25 @@ from app import helpers
 import os
 import os.path
 import openai
+from fastapi.middleware.cors import CORSMiddleware
+import base64
 
 from app.helpers import OPENAI_API_KEY
 openai.api_key = OPENAI_API_KEY
 
 app = FastAPI()
+
+origins = [
+    "*"
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.post("/api/generate/",
           tags=["ChatBot Grievance"],
@@ -50,11 +65,26 @@ async def count_token(text:str):
 @app.post("/api/transcribe/",
           tags=["ChatBot Grievance"],
           description="Transcribe Speech to Text and Generate Response")
-async def transcribe_and_generate_response(audio_file: UploadFile):
-        audio = audio_file.file.read()
+async def transcribe_and_generate_response(buffer):
+        # audio = audio_file.file.read()
+        # buffer = io.BytesIO(audio)
+        # print(type(audio_file))
+        # buffer.name = audio_file.filename
 
-        buffer = io.BytesIO(audio)
-        buffer.name = audio_file.filename
+        # Assuming 'audio_blob' is the audio blob you want to convert
+        # audio_blob_data = audio_blob.file.read()  # Read the blob data
+
+        # Create an AudioSegment from the blob data
+    
+
+        # Define the output file path
+        # output_file_path = 'output.mp3'
+
+        # # Export the audio as an MP3 file
+        # audio.export(output_file_path, format='mp3')
+
+        # print(f"Audio converted and saved as {output_file_path}")
+
         
         # Transcribe audio using the OpenAI Whisper API
         response = openai.Audio.translate(
