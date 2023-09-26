@@ -6,14 +6,14 @@ from app import helpers
 import os
 import os.path
 import openai
-from mangum import Mangum
+# from mangum import Mangum
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.helpers import OPENAI_API_KEY
 openai.api_key = OPENAI_API_KEY
 
 app = FastAPI()
-handler = Mangum(app)
+# handler = Mangum(app)
 
 origins = [
     '*'

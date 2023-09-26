@@ -23,7 +23,6 @@ langchain==0.0.295
 langsmith==0.0.38
 llama-index==0.8.29.post1
 loguru==0.7.2
-mangum==0.17.0
 marshmallow==3.20.1
 multidict==6.0.4
 mypy-extensions==1.0.0

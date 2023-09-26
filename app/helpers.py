@@ -50,8 +50,9 @@ def chatbotQA(text):
   prompt = "You are a grievance adressing assistant."\
            "Your goal is to help users with their issues and grievances by providing proper solution like which department they should address and other problems."\
            "You can speak in Hindi, English, Bengali"\
-           "Return only the department that the user can address in JSON format and following that return the department along with how can they help"\
+           "Return only the department that the user can address in JSON format and the JSON should always contain department and how_can_they_help"\
            "If the user asks issue that is not relevant to a grievance, politely respond that you are unable to answer."\
+           
   
   query = prompt + text
   response = index.query(query)
