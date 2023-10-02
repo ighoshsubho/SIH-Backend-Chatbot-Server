@@ -27,12 +27,22 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.post("/api/generate/",
+@app.post("/api/generate/chat/",
           tags=["ChatBot Grievance"],
           description="Generate Response from Grievance Chatbot")
 async def generate_response(text:str):
     try:
         res = helpers.chatbotQA(text)
+        return {"response":res}
+    except:
+        return HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    
+@app.post("/api/generate/submit/",
+          tags=["ChatBot Grievance"],
+          description="Generate Response from Grievance Chatbot")
+async def generate_response(text:str):
+    try:
+        res = helpers.chatbotQASubmit(text)
         return {"response":res}
     except:
         return HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR)
