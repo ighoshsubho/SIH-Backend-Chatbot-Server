@@ -6,6 +6,7 @@ from app import helpers
 import os
 import os.path
 import openai
+from pydub import AudioSegment
 # from mangum import Mangum
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -76,23 +77,28 @@ async def count_token(text:str):
           tags=["ChatBot Grievance"],
           description="Transcribe Speech to Text and Generate Response")
 async def transcribe_and_generate_response(audio_file: UploadFile):
-        audio = audio_file.file.read()
+    # Read the blob data
+    audio_blob = await audio_file.read()
 
-        buffer = io.BytesIO(audio)
-        buffer.name = audio_file.filename
-        
-        # Transcribe audio using the OpenAI Whisper API
-        response = openai.Audio.translate(
-            api_key=OPENAI_API_KEY,
-            model="whisper-1",
-            file=buffer
-        )
+    # Convert the blob data to an MP3 file (assuming it's in a compatible audio format)
+    audio = AudioSegment.from_file(io.BytesIO(audio_blob), format="blob")
 
-        # Get the transcribed text from the API response
-        transcribed_text = response["text"]
-        
-        print(transcribed_text)
+    # Create a buffer to hold the MP3 audio data
+    buffer = io.BytesIO()
+    audio.export(buffer, format="mp3")
+    buffer.seek(0)
+    buffer.name = audio_file.filename
 
-        # Now, pass the transcribed text to the "generate_response" endpoint
-        # res = await generate_response(transcribed_text)
-        return transcribed_text
+    # Transcribe audio using the OpenAI Whisper API
+    response = openai.Audio.translate(
+        api_key=OPENAI_API_KEY,
+        model="whisper-1",
+        file=buffer
+    )
+
+    # Get the transcribed text from the API response
+    transcribed_text = response["text"]
+
+    print(transcribed_text)
+
+    return {"text":transcribed_text}
