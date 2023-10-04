@@ -91,7 +91,7 @@ async def count_token(text:str):
           description="Transcribe Speech to Text and Generate Response")
 async def transcribe_and_generate_response(audio_file: UploadFile):
     # Read the blob data
-    audio_blob = await audio_file.read()
+    audio_blob = await audio_file.file.read()
 
     # Convert the blob data to an MP3 file (assuming it's in a compatible audio format)
     audio = AudioSegment.from_file(io.BytesIO(audio_blob), format="blob")
