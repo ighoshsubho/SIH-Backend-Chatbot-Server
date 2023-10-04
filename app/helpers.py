@@ -41,7 +41,7 @@ def ConstructIndex(directory_path):
 
   return index
 
-def chatbotQA(text):
+def chatbotQASubmit(text):
   # index_context = StorageContext.from_defaults(persist_dir="index.json")
   # print(index_context)
   vector_store = PineconeVectorStore(pinecone.Index("grievance"))
@@ -50,8 +50,22 @@ def chatbotQA(text):
   prompt = "You are a grievance adressing assistant."\
            "Your goal is to help users with their issues and grievances by providing proper solution like which department they should address and other problems."\
            "You can speak in Hindi, English, Bengali"\
-           "Return only the department that the user can address in JSON format and following that return the department along with how can they help"\
-           "If the user asks issue that is not relevant to a grievance, politely respond that you are unable to answer."\
+           "Return only the department that the user can address in JSON format and the JSON should always contain department and how_can_they_help"\
+           "If the user asks issue that is not relevant to a grievance, politely respond that you are unable to answer."
+  
+  query = prompt + text
+  response = index.query(query)
+  return response.response
+
+def chatbotQA(text):
+  # index_context = StorageContext.from_defaults(persist_dir="index.json")
+  # print(index_context)
+  vector_store = PineconeVectorStore(pinecone.Index("grievance"))
+  index_context = GPTVectorStoreIndex.from_vector_store(vector_store=vector_store)
+  index = index_context.as_query_engine()
+  prompt = "You are a grievance adressing assistant."\
+           "Your goal is to help users with their issues and grievances by providing proper solution like which department they should address and other problems."\
+           "You can speak in Hindi, English, Bengali"
   
   query = prompt + text
   response = index.query(query)
