@@ -90,38 +90,28 @@ async def count_token(text:str):
           tags=["ChatBot Grievance"],
           description="Transcribe Speech to Text and Generate Response")
 async def transcribe_and_generate_response(audio_file: UploadFile):
-        audio = audio_file.file.read()
-        buffer = io.BytesIO(audio)
-        # print(type(audio_file))
-        buffer.name = audio_file.filename
+    # Read the blob data
+    audio_blob = await audio_file.read()
 
-        # Assuming 'audio_blob' is the audio blob you want to convert
-        # audio_blob_data = audio_blob.file.read()  # Read the blob data
+    # Convert the blob data to an MP3 file (assuming it's in a compatible audio format)
+    audio = AudioSegment.from_file(io.BytesIO(audio_blob), format="blob")
 
-        # Create an AudioSegment from the blob data
-    
+    # Create a buffer to hold the MP3 audio data
+    buffer = io.BytesIO()
+    audio.export(buffer, format="mp3")
+    buffer.seek(0)
+    buffer.name = audio_file.filename
 
-        # Define the output file path
-        # output_file_path = 'output.mp3'
+    # Transcribe audio using the OpenAI Whisper API
+    response = openai.Audio.translate(
+        api_key=OPENAI_API_KEY,
+        model="whisper-1",
+        file=buffer
+    )
 
-        # # Export the audio as an MP3 file
-        # audio.export(output_file_path, format='mp3')
+    # Get the transcribed text from the API response
+    transcribed_text = response["text"]
 
-        # print(f"Audio converted and saved as {output_file_path}")
+    print(transcribed_text)
 
-        
-        # Transcribe audio using the OpenAI Whisper API
-        response = openai.Audio.translate(
-            api_key=OPENAI_API_KEY,
-            model="whisper-1",
-            file=buffer
-        )
-
-        # Get the transcribed text from the API response
-        transcribed_text = response["text"]
-        
-        print(transcribed_text)
-
-        # Now, pass the transcribed text to the "generate_response" endpoint
-        # res = await generate_response(transcribed_text)
-        return transcribed_text
+    return {"text":transcribed_text}
