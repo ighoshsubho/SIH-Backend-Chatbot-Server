@@ -7,13 +7,26 @@ from app import helpers
 import os
 import os.path
 import openai
+# from mangum import Mangum
 from fastapi.middleware.cors import CORSMiddleware
-import base64
 
 from app.helpers import OPENAI_API_KEY
 openai.api_key = OPENAI_API_KEY
 
 app = FastAPI()
+# handler = Mangum(app)
+
+origins = [
+    '*'
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 origins = [
     "*"
@@ -65,11 +78,11 @@ async def count_token(text:str):
 @app.post("/api/transcribe/",
           tags=["ChatBot Grievance"],
           description="Transcribe Speech to Text and Generate Response")
-async def transcribe_and_generate_response(buffer):
-        # audio = audio_file.file.read()
-        # buffer = io.BytesIO(audio)
+async def transcribe_and_generate_response(audio_file: UploadFile):
+        audio = audio_file.file.read()
+        buffer = io.BytesIO(audio)
         # print(type(audio_file))
-        # buffer.name = audio_file.filename
+        buffer.name = audio_file.filename
 
         # Assuming 'audio_blob' is the audio blob you want to convert
         # audio_blob_data = audio_blob.file.read()  # Read the blob data

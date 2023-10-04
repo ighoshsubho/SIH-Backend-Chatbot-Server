@@ -1,4 +1,1 @@
-Our dashboard can help people navigate through their grievances
-
 It has the status which the user can check in the dashboard.
-This dashboard will assist you with your grievances from chatbot
